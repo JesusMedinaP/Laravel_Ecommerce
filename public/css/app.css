@@ -1032,6 +1032,12 @@ select {
     padding-right: 2rem;
   }
 }
+#navigation-menu{
+        height: calc(100vh - 4rem);
+    }
+.navigation-link:hover .navigation-submenu{
+        display: block !important;
+    }
 .fixed {
   position: fixed;
 }
@@ -1537,6 +1543,9 @@ select {
 .bg-opacity-25 {
   --tw-bg-opacity: 0.25;
 }
+.bg-opacity-100 {
+  --tw-bg-opacity: 1;
+}
 .bg-cover {
   background-size: cover;
 }
@@ -1792,6 +1801,10 @@ select {
 .text-gray-300 {
   --tw-text-opacity: 1;
   color: rgb(209 213 219 / var(--tw-text-opacity));
+}
+.text-orange-500 {
+  --tw-text-opacity: 1;
+  color: rgb(249 115 22 / var(--tw-text-opacity));
 }
 .text-red-100 {
   --tw-text-opacity: 1;
