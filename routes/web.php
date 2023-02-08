@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WelcomeController;
 /*
@@ -29,3 +30,4 @@ Route::middleware([
 
 Route::get('/', WelcomeController::class);
 
+Route::get('categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
