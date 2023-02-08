@@ -39,7 +39,7 @@
         <script>
             function dropdown(){
                 return {
-                    open: false,
+                    open: true,
                     show(){
                         if(this.open){
                             this.open = false;
