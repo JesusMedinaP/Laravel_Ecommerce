@@ -9,22 +9,23 @@
 </style>
 
 <header x-data="dropdown()" class="bg-trueGray-700 sticky top-0">
-    <div class="container-menu flex items-center h-16">
-        <a  :class="{'bg-opacity-100 text-orange-500': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full" >
+    <div class="container-menu flex items-center h-16 justify-between md:justify-start">
+        <a  :class="{'bg-opacity-100 text-orange-500': open}" x-on:click="show()" class="flex flex-col items-center justify-center px-4 bg-white bg-opacity-25 text-white cursor-pointer font-semibold h-full order-last md:order-first px-6 sm:px-4" >
             <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                 <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <span class="text-sm">
+            <span class="text-sm hidden sm:block">
                 Categorías
             </span>
             <a href="/" class="mx-6">
                 <x-jet-application-mark class="block h-9 w-auto"></x-jet-application-mark>
             </a>
 
-            @livewire('search');
+            <div class="flex-1 hidden md:block">
+                @livewire('search');
+            </div>
 
-
-            <div class="mx-6 relative">
+            <div class="mx-6 relative hidden md:block">
                 @auth
                 <x-jet-dropdown align="right" width="48">
                     <x-slot name="trigger">
@@ -46,7 +47,9 @@
                 @endauth
             </div>
         </a>
-        @livewire('dropdown-cart')
+        <div class="hidden md:block">
+            @livewire('dropdown-cart')
+        </div>
     </div>
 
     <nav id="navigation-menu" x-show="open":class="{'block': open, 'hidden': !open}"
