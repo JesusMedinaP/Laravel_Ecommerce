@@ -22,7 +22,7 @@
             </a>
 
             <div class="flex-1 hidden sm:block">
-                @livewire('search');
+                @livewire('search')
             </div>
 
             <div class="mx-6 relative hidden md:block">
