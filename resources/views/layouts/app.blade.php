@@ -13,11 +13,13 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <script src="{{ asset('vendor/glider-js/glider.min.js') }}"></script>
 
         <!-- Styles -->
         @livewireStyles
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/glider-js/glider.min.css') }}">
     </head>
     <body class="font-sans antialiased">
         <x-jet-banner />

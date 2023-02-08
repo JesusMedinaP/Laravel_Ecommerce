@@ -21,7 +21,7 @@
                 <x-jet-application-mark class="block h-9 w-auto"></x-jet-application-mark>
             </a>
 
-            <div class="flex-1 hidden md:block">
+            <div class="flex-1 hidden sm:block">
                 @livewire('search');
             </div>
 
