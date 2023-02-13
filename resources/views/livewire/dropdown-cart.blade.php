@@ -12,7 +12,7 @@ text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
             <ul>
                 @forelse(Cart::content() as $item)
 
-                    <li class="flex">
+                    <li class="flex p-2 border-b border-gray-200">
                         <img class="h-15 w-20 object-cover mr-4" src="{{ $item->options->image }}" alt="">
                         <article class="flex-1">
                             <h1 class="font-bold">{{ $item->name }}</h1>
@@ -28,6 +28,15 @@ text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-600 rounded-full"
                         </p>
                     </li>
             @endforelse
+                    @if(Cart::count())
+                        <div class="px-3 py-2">
+                            <p class="text-lg text-gray-700 mt-2 mb-3"><span class="font-bold">Total:</span> {{ Cart::subtotal() }} &euro;</p>
+                            <x-button-link class="w-full" color="orange">
+                                Ir al carrito de compras
+                            </x-button-link>
+                        </div>
+                    @endif
+            </ul>
         </x-slot>
     </x-jet-dropdown>
 </div>
