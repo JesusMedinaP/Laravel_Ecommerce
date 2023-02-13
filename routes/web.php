@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Livewire\ShoppingCart;
+
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\SearchController;
@@ -42,3 +44,5 @@ Route::get('/deletecart', function () {
 });
 
 Route::get('search', SearchController::class)->name('search');
+
+Route::get('shopping-cart', [ShoppingCart::class, 'render'])->name('shopping-cart');
