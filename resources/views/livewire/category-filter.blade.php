@@ -3,8 +3,15 @@
         <div class="px-6 py-2 flex justify-between items-center text-gray-500">
             <h1>{{ $category->name }}</h1>
             <div class="grid grid-cols-2 border border-gray-200 divide-x divide-gray-200">
-                <i class="fas fa-border-all p-3 cursor-pointer"></i>
-                <i class="fas fa-th-list p-3 cursor-pointer"></i>
+
+                <i class="fas fa-border-all p-3 cursor-pointer{{ $view == 'grid' ? 'text-orange-500' : '' }}"
+                   wire:click="$set('view', 'grid')">
+
+                </i>
+
+                <i class="fas fa-th-list p-3 cursor-pointer {{ $view == 'list' ? 'text-orange-500' : '' }}"
+                   wire:click="$set('view', 'list')">
+                </i>
             </div>
         </div>
     </div>
@@ -17,7 +24,7 @@
                     <li class="py-2 text-sm ">
                         <a class="cursor-pointer hover:text-orange-500 capitalize"
                            {{ $subcategoria == $subcategory->name ? 'text-orange-500 fontsemibold' : '' }}
-                           href="" wire:click="$set('subcategoria', '{{ $subcategory->name }}')">
+                           wire:click="$set('subcategoria', '{{ $subcategory->name }}')">
                             {{ $subcategory->name }}
                         </a>
                     </li>
@@ -32,7 +39,7 @@
                     <li class="py-2 text-sm">
                         <a class="cursor-pointer hover:text-orange-500 capitalize"
                            {{ $marca == $brand->name ? 'text-orange-500 font-semibold' : ''}}
-                           href="" wire:click="$set('marca', '{{ $brand->name }}')">
+                           wire:click="$set('marca', '{{ $brand->name }}')">
                             {{ $brand->name }}
                         </a>
                     </li>
@@ -45,6 +52,7 @@
 
         </aside>
         <div class="col-span-4">
+            @if($view == 'grid')
             <ul class="grid grid-cols-4 gap-6">
                 @foreach($products as $product)
                     <li class="bg-white rounded-lg shadow">
@@ -55,7 +63,7 @@
                             </figure>
                             <div class="py-4 px-6">
                                 <h1 class="text-lg font-semibold">
-                                    <a href="">
+                                    <a>
                                         {{ Str::limit($product->name, 20) }}
                                     </a>
                                 </h1>
@@ -65,6 +73,43 @@
                     </li>
                 @endforeach
             </ul>
+            @else
+                <ul>
+                    @foreach($products as $product)
+                        <li class="bg-white rounded-lg shadow mb-4">
+                            <article class="flex">
+                                <figure>
+                                    <img class="h-48 w-56 object-cover object-center" src="{{ Storage::url($product->images->first()->url) }}"
+                                         alt="">
+                                </figure>
+                                <div class="flex-1 py-4 px-6 flex flex-col">
+                                    <div class="flex justify-between">
+                                        <div>
+                                            <h1 class="text-lg font-semibold text-gray-700">{{ $product->name }}</h1>
+                                            <p class="font-bold text-gray-700">{{ $product->price }} &euro;</p>
+                                        </div>
+                                        <div class="flex">
+                                            <ul class="flex text-sm ">
+                                                <li class="fas fa-star text-yellow-400 mr-1"></li>
+                                                <li class="fas fa-star text-yellow-400 mr-1"></li>
+                                                <li class="fas fa-star text-yellow-400 mr-1"></li>
+                                                <li class="fas fa-star text-yellow-400 mr-1"></li>
+                                                <li class="fas fa-star text-yellow-400 mr-1"></li>
+                                            </ul>
+                                            <span class="text-gray-700 text-sm">(24)</span>
+                                        </div>
+                                    </div>
+                                    <div class="mt-auto mb-6">
+                                        <x-jet-danger-button>
+                                            Más información
+                                        </x-jet-danger-button>
+                                    </div>
+                                </div>
+                            </article>
+                        </li>
+                    @endforeach
+                </ul>
+            @endif
             <div class="mt-4">
                 {{ $products->links() }}
             </div>
