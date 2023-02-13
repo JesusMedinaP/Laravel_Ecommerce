@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Product;
+use App\Models\Size;
+use Gloudemans\Shoppingcart\Facades\Cart;
+
 function quantity($product_id, $color_id = null, $size_id = null)
 {
     $product = Product::find($product_id);

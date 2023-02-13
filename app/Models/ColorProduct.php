@@ -19,4 +19,5 @@ class ColorProduct extends Model
     {
         return $this->belongsTo(Color::class);
     }
+
 }
