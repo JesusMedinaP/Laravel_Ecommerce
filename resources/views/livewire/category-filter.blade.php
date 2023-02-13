@@ -15,7 +15,7 @@
             </div>
         </div>
     </div>
-    <div class="grid grid-cols-1  sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
         <aside>
             <h2 class="font-semibold text-center mb-2">Subcategorías</h2>
             <ul class="divide-y divide-gray-200">
@@ -73,7 +73,7 @@
                 @endforeach
             </ul>
             @else
-                <ul>
+                <ul class="">
                     @foreach($products as $product)
                         <li class="bg-white rounded-lg shadow mb-4">
                             <article class="flex">
