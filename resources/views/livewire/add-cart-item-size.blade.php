@@ -41,6 +41,9 @@
         </div>
         <div class="flex-1">
             <x-button
+                wire:click="addItem"
+                wire:loading.attr="disabled"
+                wire:target="addItem"
                 x-bind:disabled="!$wire.quantity"
                 class="w-full" color="orange">
                 Agregar al carrito de compras
