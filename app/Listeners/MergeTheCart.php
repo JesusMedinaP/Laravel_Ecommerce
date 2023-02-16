@@ -2,7 +2,8 @@
 
 namespace App\Listeners;
 
-use App\Events\Login;
+use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -21,11 +22,11 @@ class MergeTheCart
     /**
      * Handle the event.
      *
-     * @param  \App\Events\Login  $event
+     * @param  Illuminate\Auth\Events\Login  $event
      * @return void
      */
     public function handle(Login $event)
     {
-        //
+        Cart::merge(auth()->user()->id);
     }
 }
