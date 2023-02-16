@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\ShoppingCart;
 
 use App\Http\Controllers\CategoryController;
@@ -28,9 +29,9 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified'
 ])->group(function () {
-    Route::get('/dashboard', function () {
-        return view('dashboard');
-    })->name('dashboard');
+//    Route::get('/dashboard', function () {
+//        return view('dashboard');
+//    })->name('dashboard');
 });
 
 Route::get('/', WelcomeController::class);
@@ -39,10 +40,12 @@ Route::get('categories/{category}', [CategoryController::class, 'show'])->name('
 
 Route::get('products/{product}', [ProductsController::class, 'show'])->name('products.show');
 
-Route::get('/deletecart', function () {
-    Cart::destroy();
-});
+//Route::get('/deletecart', function () {
+//    Cart::destroy();
+//});
 
 Route::get('search', SearchController::class)->name('search');
 
 Route::get('shopping-cart', [ShoppingCart::class, 'render'])->name('shopping-cart');
+
+Route::get('orders/create', [ CreateOrder::class, 'render'])->middleware('auth')->name('orders.create');
