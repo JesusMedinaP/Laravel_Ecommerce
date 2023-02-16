@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Livewire\CreateOrder;
+
 use App\Http\Livewire\ShoppingCart;
 
 use App\Http\Controllers\CategoryController;
@@ -48,4 +48,4 @@ Route::get('search', SearchController::class)->name('search');
 
 Route::get('shopping-cart', [ShoppingCart::class, 'render'])->name('shopping-cart');
 
-Route::get('orders/create', [ CreateOrder::class, 'render'])->middleware('auth')->name('orders.create');
+Route::get('orders/create', App\Http\Livewire\CreateOrder::class)->middleware('auth')->name('orders.create');
