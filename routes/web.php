@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\OrderController;
 use App\Http\Livewire\ShoppingCart;
 
 use App\Http\Controllers\CategoryController;
@@ -49,3 +50,5 @@ Route::get('search', SearchController::class)->name('search');
 Route::get('shopping-cart', [ShoppingCart::class, 'render'])->name('shopping-cart');
 
 Route::get('orders/create', App\Http\Livewire\CreateOrder::class)->middleware('auth')->name('orders.create');
+
+Route::get('orders/{order}/payment', [OrderController::class, 'payment'])->name('orders.payment');
