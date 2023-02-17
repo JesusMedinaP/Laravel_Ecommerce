@@ -1,5 +1,6 @@
 <x-app-layout>
-    <div class="container-menu py-8">
+    <div class="grid grid-cols-5 gap-6 container-menu py-8">
+        <div class="col-span-3">
         <div class="bg-white rounded-lg shadow-lg px-6 py-4 mb-6">
             <p class="text-gray-700 uppercase"><span class="font-semibold">Número de Orden:</span> {{ $order->id }}</p>
         </div>
@@ -73,10 +74,13 @@
                 </tbody>
             </table>
         </div>
+        </div>
 
-        <div class="bg-white rounded-lg shadow-lg p-6 flex justify-between items-center">
-            <img class="h-8" src="{{ asset('img/MC_VI_DI_2-1.jpg') }}" alt="">
-            <div class="text-gray-700">
+        <div class="col-span-2">
+            <div class="bg-white rounded-lg shadow-lg p-6">
+                <div class="flex justify-between items-center">
+                    <img class="h-8" src="{{ asset('img/MC_VI_DI_2-1.jpg') }}" alt="">
+                <div class="text-gray-700">
                 <p class="text-sm font-semibold">
                     Subtotal: {{ $order->total - $order->shipping_cost }} &euro;
                 </p>
@@ -86,7 +90,12 @@
                 <p class="text-lg font-semibold uppercase">
                     Pago: {{ $order->total }} &euro;
                 </p>
+                </div>
+
+                </div>
+
             </div>
+
         </div>
 
     </div>
