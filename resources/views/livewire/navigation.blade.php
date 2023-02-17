@@ -36,12 +36,19 @@
                     </x-slot>
 
                     <x-slot name="content">
+
                         <x-jet-dropdown-link href="{{ route('login') }}">
                             {{ __('Login') }}
                         </x-jet-dropdown-link>
+
                         <x-jet-dropdown-link href="{{ route('register') }}">
                             {{ __('Register') }}
                         </x-jet-dropdown-link>
+
+                        <x-jet-dropdown-link href="{{ route('orders.index') }}">
+                            {{ __('My Orders') }}
+                        </x-jet-dropdown-link>
+
                     </x-slot>
                 </x-jet-dropdown>
                 @endauth
