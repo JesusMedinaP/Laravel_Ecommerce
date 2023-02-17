@@ -7,7 +7,7 @@
                 <div class="{{ ($order->status >= 2 && $order->status != 5) ? 'bg-blue-400' : 'bg-gray-400' }}
                     rounded-full h-12 w-12
                     flex items-center justify-center">
-                    <i class="fas fa-check text-white"></i>
+                    <font-awesome-icon icon="fa-solid fa-check" />
                 </div>
                 <div class="absolute -left-1.5 mt-0.5">
                     <p>Recibido</p>
@@ -22,7 +22,7 @@
                 rounded-full h-12 w-12
                 flex items-center justify-center">
 
-                    <i class="fas fa-truck text-white"></i>
+                <font-awesome-icon icon="fas fa-truck" />
             </div>
                 <div class="absolute -left-1 mt-0.5">
                     <p>Enviado</p>
@@ -39,7 +39,7 @@
                     rounded-full h-12 w-12
                     flex items-center justify-center">
 
-                    <i class="fas fa-check text-white"></i>
+                    <font-awesome-icon icon="fas fa-check" />
                 </div>
                 <div class="absolute -left-3 mt-0.5">
                     <p>Entregado</p>
