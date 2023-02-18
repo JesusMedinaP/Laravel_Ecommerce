@@ -18,6 +18,7 @@
         <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>
         <script src="{{asset('vendor/fontawesome-free/js/all.js') }}"></script>
         <script src=" {{ mix('js/app.js') }}"></script>
+        <script src="{{ asset('vendor/ckeditor5/build/ckeditor.js') }}"></script>
 
         <!-- Styles -->
 
