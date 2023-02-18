@@ -12,7 +12,7 @@
             </select>
         </div>
         <div>
-            <x-jet-label value="Subcategorías" />
+            <x-jet-label value="Subcategorías"></x-jet-label>
             <select class="w-full form-control" wire:model="subcategory_id">
                 <option value="" selected disabled>Seleccione una subcategoría</option>
                 @foreach($subcategories as $subcategory)
@@ -24,12 +24,11 @@
 
     <div class="mb-4">
         <div class="mb-4">
-            <x-jet-label value="Nombre"></x-jet-label>
+            <x-jet-label value="Nombre"/>
             <x-jet-input type="text"
                          class="w-full"
                          wire:model="name"
-                         placeholder="Ingrese el nombre del producto">
-            </x-jet-input>
+                         placeholder="Ingrese el nombre del producto"/>
         </div>
     </div>
     <div class="mb-4">
@@ -57,9 +56,18 @@
                       }
                       );"
                       x-ref="miEditor">
-
             </textarea>
         </div>
+    </div>
+
+    <div class="mb-4">
+        <x-jet-label value="Marca" />
+        <select class="form-control w-full" wire:model="brand_id">
+            <option value="" selected disabled>Seleccione una marca</option>
+            @foreach ($brands as $brand)
+                <option value="{{$brand->id}}">{{$brand->name}}</option>
+            @endforeach
+        </select>
     </div>
 
 </div>
