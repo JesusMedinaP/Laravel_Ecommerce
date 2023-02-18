@@ -60,6 +60,7 @@
         </div>
     </div>
 
+    <div class="grid grid-cols-2 gap-6 mb-4">
     <div class="mb-4">
         <x-jet-label value="Marca" />
         <select class="form-control w-full" wire:model="brand_id">
@@ -70,4 +71,23 @@
         </select>
     </div>
 
+        <div>
+            <x-jet-label value="Precio" />
+            <x-jet-input
+                wire:model="price"
+                type="number"
+                class="w-full"
+                step=".01" />
+        </div>
+    </div>
+
+    @if ($subcategory_id && !$this->subcategory->color && !$this->subcategory->size)
+        <div>
+            <x-jet-label value="Cantidad" />
+            <x-jet-input
+                wire:model="quantity"
+                type="number"
+                class="w-full" />
+        </div>
+    @endif
 </div>
