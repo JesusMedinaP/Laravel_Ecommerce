@@ -1211,14 +1211,14 @@ select {
 .mt-0 {
   margin-top: 0px;
 }
+.ml-auto {
+  margin-left: auto;
+}
 .mr-4 {
   margin-right: 1rem;
 }
 .-mt-px {
   margin-top: -1px;
-}
-.ml-auto {
-  margin-left: auto;
 }
 .mb-2 {
   margin-bottom: 0.5rem;
