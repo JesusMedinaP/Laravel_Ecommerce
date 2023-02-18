@@ -49,6 +49,10 @@
                             {{ __('My Orders') }}
                         </x-jet-dropdown-link>
 
+                        <x-jet-dropdown-link href="{{ route('admin.index') }}">
+                            {{ __('Admin') }}
+                        </x-jet-dropdown-link>
+
                     </x-slot>
                 </x-jet-dropdown>
                 @endauth
