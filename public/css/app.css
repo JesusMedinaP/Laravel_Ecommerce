@@ -1223,14 +1223,14 @@ select {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mt-12 {
+  margin-top: 3rem;
+}
 .mr-1 {
   margin-right: 0.25rem;
 }
 .mt-auto {
   margin-top: auto;
-}
-.mt-12 {
-  margin-top: 3rem;
 }
 .block {
   display: block;

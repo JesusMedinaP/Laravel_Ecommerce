@@ -16,6 +16,8 @@
         <script src="{{ asset('vendor/glider-js/glider.min.js') }}"></script>
         <script src="{{ asset('vendor/flex-slider/jquery.flexslider-min.js') }}"></script>
         <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>
+        <script src="{{asset('vendor/fontawesome-free/js/all.js') }}"></script>
+        <script src=" {{ mix('js/app.js') }}"></script>
 
         <!-- Styles -->
 
