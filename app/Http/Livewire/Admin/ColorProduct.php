@@ -10,6 +10,7 @@ class ColorProduct extends Component
 
     public $product, $colors, $quantity;
     public $color_id;
+    public $open = false;
 
     protected $rules = [
         'color_id' => 'required',
