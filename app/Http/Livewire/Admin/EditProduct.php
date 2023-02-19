@@ -69,6 +69,7 @@ class EditProduct extends Component
         }
         $this->validate();
         $this->product->save();
+        $this->emit('saved');
     }
 
     public function render()

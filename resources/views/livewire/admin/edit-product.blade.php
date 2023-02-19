@@ -1,6 +1,8 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-700">
     <h1 class="text-3xl text-center font-semibold mb-8">Complete los datos para modificar un producto</h1>
 
+    <div class="bg-white shadow-xl rounded-lg p-6">
+
     <div class="grid grid-cols-2 gap-6 mb-4">
         <div>
             <x-jet-label value="Categorías"></x-jet-label>
@@ -99,7 +101,12 @@
         </div>
     @endif
 
-    <div class="flex mt-4">
+    <div class="flex mt-4 justify-end items-center">
+
+        <x-jet-action-message class="mr-3" on="saved">
+            Actualizado
+        </x-jet-action-message>
+
         <x-jet-button
             wire:loading.attr="disabled"
             wire:target="save"
@@ -109,4 +116,13 @@
         </x-jet-button>
     </div>
 
+    </div>
 </div>
+
+@if($this->subcategory)
+    @if($this->subcategory->size)
+        @livewire('admin.size-product', ['product' => $product], key('size-product-' . $product->id))
+    @elseif($this->subcategory->color)
+        @livewire('admin.color-product', ['product' => $product], key('color-product-' . $product->id))
+    @endif
+@endif
