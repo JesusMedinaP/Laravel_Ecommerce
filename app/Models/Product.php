@@ -28,8 +28,9 @@ class Product extends Model
         return $this->belongsTo(Subcategory::class);
     }
 
-    public function colors(){
-        return $this->belongsToMany(Color::class)->withPivot('quantity');
+    public function colors()
+    {
+        return $this->belongsToMany(Color::class)->withPivot('quantity', 'id');
     }
 
     public function images()
