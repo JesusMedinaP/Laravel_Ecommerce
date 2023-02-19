@@ -1,3 +1,5 @@
+
+
 <div>
     <div class="my-12 bg-white shadow-lg rounded-lg p-6">
         <div class="mb-6">
@@ -36,7 +38,7 @@
         </x-jet-button>
     </div>
 
-
+    @if($productColors->count())
     <div class="bg-white shadow-lg rounded-lg p-6">
         <table>
             <thead>
@@ -73,15 +75,20 @@
 
                         </x-jet-secondary-button>
 
-                        <x-jet-danger-button>
+                        <x-jet-danger-button
+                            wire:click="$emit('deletePivot', {{ $color->pivot->id }})">
+
                             Eliminar
+
                         </x-jet-danger-button>
+
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
     </div>
+    @endif
 
     <x-jet-dialog-modal wire:model="open">
 

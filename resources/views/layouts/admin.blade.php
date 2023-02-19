@@ -19,6 +19,31 @@
         <script src="{{asset('vendor/fontawesome-free/js/all.js') }}"></script>
         <script src=" {{ mix('js/app.js') }}"></script>
         <script src="{{ asset('vendor/ckeditor5/build/ckeditor.js') }}"></script>
+        <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.js') }}"></script>
+        @push('scripts')
+            <script>
+                Livewire.on('deletePivot', pivot => {
+                    Swal.fire({
+                        title: 'Are you sure?',
+                        text: "You won't be able to revert this!",
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#3085d6',
+                        cancelButtonColor: '#d33',
+                        confirmButtonText: 'Yes, delete it!'
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            Livewire.emit('delete', pivot);
+                            Swal.fire(
+                                'Deleted!',
+                                'Your file has been deleted.',
+                                'success'
+                            )
+                        }
+                    })
+                })
+            </script>
+        @endpush
 
         <!-- Styles -->
 
@@ -26,6 +51,7 @@
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/glider-js/glider.min.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/flex-slider/flexslider.css') }}">
+        <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.css') }}">
         @livewireStyles
 
     </head>
@@ -75,5 +101,7 @@
             }
         </script>
     @stack('scripts')
+
+
     </body>
 </html>
