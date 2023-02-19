@@ -1,5 +1,5 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 text-gray-700">
-    <h1 class="text-3xl text-center font-semibold mb-8">Complete los datos para crear un producto</h1>
+    <h1 class="text-3xl text-center font-semibold mb-8">Complete los datos para modificar un producto</h1>
 
     <div class="grid grid-cols-2 gap-6 mb-4">
         <div>
@@ -53,7 +53,7 @@
                       x-data
                       x-init="ClassicEditor.create($refs.miEditor)
                       .then(function(editor){editor.model.document.on('change:data',
-                      () => {@this.set('description', editor.getData())
+                      () => {@this.set('product.description', editor.getData())
                       })
                       })
                       .catch( error => {console.error( error );
@@ -88,7 +88,7 @@
         </div>
     </div>
 
-    @if (!$this->subcategory->color && !$this->subcategory->size)
+    @if ($this->subcategory && !$this->subcategory->color && !$this->subcategory->size)
         <div>
             <x-jet-label value="Cantidad" />
             <x-jet-input
