@@ -14,7 +14,10 @@
             <ul class="flex flex-wrap">
                 @foreach ($product->images as $image)
                     <li class="relative" wire:key="image-{{ $image->id }}">
-                        <img class="w-32 h-20 object-cover" src="{{ Storage::url($image->url) }}" alt="">
+                        <img
+                            class="h-10 w-10 rounded-full"
+                            src="{{ $product->images->count() ? Storage::url($product->images->first()->url) : 'img/default.jpg' }}"
+                            alt="">
                         <x-jet-danger-button class="absolute right-2 top-2 w-6 h-4"
                                              wire:click="deleteImage({{ $image->id }})" wire:loading.attr="disabled"
                                              wire:target="deleteImage({{ $image->id }})">
