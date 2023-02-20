@@ -3,7 +3,7 @@
 
         <div>
             <x-jet-label>
-                Cantidad
+                Talla
             </x-jet-label>
             <x-jet-input
                 wire:model="name"
@@ -36,7 +36,7 @@
                             <i class="fas fa-edit"></i>
                         </x-jet-button>
 
-                        <x-jet-danger-button>
+                        <x-jet-danger-button wire:click="$emit('deleteSize', {{ $size->id }})">
                             <i class="fas fa-trash"></i>
                         </x-jet-danger-button>
 
@@ -77,3 +77,28 @@
 
     </x-jet-dialog-modal>
 </div>
+
+@push('scripts')
+    <script>
+        Livewire.on('deleteSize', sizeId => {
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Livewire.emit('delete', sizeId);
+                    Swal.fire(
+                        'Deleted!',
+                        'Your file has been deleted.',
+                        'success'
+                    )
+                }
+            })
+        })
+    </script>
+@endpush
