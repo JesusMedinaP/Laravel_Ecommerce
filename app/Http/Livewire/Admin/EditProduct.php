@@ -14,6 +14,7 @@ class EditProduct extends Component
 {
     public $product, $categories,$subcategories, $brands;
     public $category_id;
+    protected $listeners = ['refreshProduct'];
 
     protected $rules = [
         'category_id' => 'required',
@@ -45,6 +46,10 @@ class EditProduct extends Component
         $this->product->slug = Str::slug($value);
     }
 
+    public function refreshProduct()
+    {
+        $this->product = $this->product->fresh();
+    }
 
     public function mount(Product $product)
     {
