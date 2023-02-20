@@ -12,25 +12,26 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <script src="{{ asset('vendor/glider-js/glider.min.js') }}"></script>
-        <script src="{{ asset('vendor/flex-slider/jquery.flexslider-min.js') }}"></script>
-        <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>
-        <script src="{{asset('vendor/fontawesome-free/js/all.js') }}"></script>
+{{--        <script src="{{ asset('vendor/glider-js/glider.min.js') }}"></script>--}}
+{{--        <script src="{{ asset('vendor/flex-slider/jquery.flexslider-min.js') }}"></script>--}}
+{{--        <script src="{{ asset('vendor/flex-slider/node_modules/jquery/dist/jquery.js') }}"></script>--}}
+{{--        <script src="{{asset('vendor/fontawesome-free/js/all.js') }}"></script>--}}
         <script src=" {{ mix('js/app.js') }}"></script>
         <script src="{{ asset('vendor/ckeditor5/build/ckeditor.js') }}"></script>
         <script src="{{ asset('vendor/sweetalert2/dist/sweetalert2.js') }}"></script>
-        <script src="{{asset('vendor/dropzone/dist/dropzone.js')}}"></script>
+        <script src="{{ asset('vendor/dropzone/dist/dropzone.js') }}"></script>
 
 
         <!-- Styles -->
 
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('vendor/glider-js/glider.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('vendor/flex-slider/flexslider.css') }}">
+{{--        <link rel="stylesheet" href="{{ asset('vendor/glider-js/glider.min.css') }}">--}}
+{{--        <link rel="stylesheet" href="{{ asset('vendor/flex-slider/flexslider.css') }}">--}}
         <link rel="stylesheet" href="{{ asset('vendor/sweetalert2/dist/sweetalert2.css') }}">
-        <link rel="stylesheet" href="{{asset('vendor/dropzone/dist/dropzone.css')}}">
+        <link rel="stylesheet" href="{{ asset('vendor/dropzone/dist/dropzone.css') }}">
         @livewireStyles
 
     </head>
