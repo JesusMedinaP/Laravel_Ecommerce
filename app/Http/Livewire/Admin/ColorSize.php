@@ -12,6 +12,7 @@ class ColorSize extends Component
     public $size, $colors;
     public $color_id, $quantity;
     public $pivot, $open = false, $pivot_color_id, $pivot_quantity;
+    protected $listeners = ['delete'];
 
     protected $rules = [
         'color_id' => 'required',
@@ -53,6 +54,12 @@ class ColorSize extends Component
         $this->pivot->save();
         $this->size = $this->size->fresh();
         $this->open = false;
+    }
+
+    public function delete(TbPivot $pivot)
+    {
+        $pivot->delete();
+        $this->size = $this->size->fresh();
     }
 
     public function render()
