@@ -41,6 +41,7 @@ class ColorSize extends Component
     public function edit(TbPivot $pivot)
     {
         $this->pivot = $pivot;
+        $this->open = true;
         $this->pivot_color_id = $pivot->color_id;
         $this->pivot_quantity = $pivot->quantity;
     }
