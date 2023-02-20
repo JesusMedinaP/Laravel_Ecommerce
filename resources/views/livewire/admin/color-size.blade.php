@@ -113,7 +113,7 @@
     @endif
     @push('scripts')
         <script>
-            Livewire.on('deletePivot', pivot => {
+            Livewire.on('deleteColorSize', pivot => {
                 Swal.fire({
                     title: 'Are you sure?',
                     text: "You won't be able to revert this!",
