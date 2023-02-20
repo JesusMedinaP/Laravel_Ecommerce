@@ -1,6 +1,7 @@
 <?php
 
 
+use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\OrderController;
 use App\Http\Livewire\CreateOrder;
 use App\Http\Livewire\PaymentOrder;
@@ -70,3 +71,5 @@ Route::get('prueba', function () {
     }
     return "Completado con éxito";
 });
+
+Route::post('product/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
