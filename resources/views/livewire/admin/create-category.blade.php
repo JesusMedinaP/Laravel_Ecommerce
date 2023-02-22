@@ -109,7 +109,7 @@
                         </td>
                         <td class="py-2">
                             <div class="flex divide-x divide-gray-300 font-semibold">
-                                <a class="pr-2 hover:text-blue-600 cursor-pointer"
+                                <a class="pr-2 hover:text-green-600 cursor-pointer"
                                    wire:click="edit('{{$category->slug}}')">Editar</a>
                                 <a class="pl-2 hover:text-red-600 cursor-pointer"
                                    wire:click="$emit('deleteCategory', '{{ $category->slug }}')">Eliminar</a>
@@ -199,7 +199,7 @@
 
 
         <x-slot name="footer">
-            <x-jet-danger-button wire:loading.attr="disabled" wire:target="editImage">
+            <x-jet-danger-button wire:click="update"  wire:loading.attr="disabled" wire:target="editImage, update">
                 Actualizar
             </x-jet-danger-button>
         </x-slot>
