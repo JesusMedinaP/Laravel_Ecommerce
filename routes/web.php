@@ -73,3 +73,4 @@ Route::get('prueba', function () {
 });
 
 Route::post('product/{product}/files', [ProductController::class, 'files'])->name('admin.products.files');
+

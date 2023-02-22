@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Livewire\Admin\CreateProduct;
 use App\Http\Livewire\Admin\EditProduct;
 use App\Http\Livewire\Admin\ShowProducts;
@@ -11,3 +12,4 @@ Route::get('products/{product}/edit', EditProduct::class)->name('admin.products.
 
 Route::get('products/create', CreateProduct::class)->name('admin.products.create');
 
+Route::get('categories', [CategoryController::class, 'index'])->name('admin.categories.index');
