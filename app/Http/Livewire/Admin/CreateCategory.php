@@ -37,7 +37,7 @@ class CreateCategory extends Component
     ];
 
     public $brands, $categories, $image;
-
+    public $listeners = ['delete'];
 
     public function updatedCreateFormName($value)
     {
@@ -81,6 +81,12 @@ class CreateCategory extends Component
 
         $this->getCategories();
         $this->emit('saved');
+    }
+
+    public function delete(Category $category)
+    {
+        $category->delete();
+        $this->getCategories();
     }
 
 
