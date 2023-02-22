@@ -189,8 +189,8 @@
                 <x-jet-label>
                     Imagen
                 </x-jet-label>
-                <input wire:model="editForm.image" accept="image/*" type="file" class="mt-1" name="" id="{{ $image }}">
-                <x-jet-input-error for="editForm.image" />
+                <input wire:model="editImage" accept="image/*" type="file" class="mt-1" name="" id="{{ $image2 }}">
+                <x-jet-input-error for="editImage" />
             </div>
 
 
