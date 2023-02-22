@@ -36,7 +36,7 @@ class CreateCategory extends Component
         'createForm.brands' => 'marcas',
     ];
 
-    public $brands, $image;
+    public $brands, $categories, $image;
 
 
     public function updatedCreateFormName($value)
@@ -47,6 +47,7 @@ class CreateCategory extends Component
     public function mount()
     {
         $this->getBrands();
+        $this->getCategories();
         $this->image = 1;
     }
 
@@ -55,6 +56,10 @@ class CreateCategory extends Component
         $this->brands = Brand::all();
     }
 
+    public function getCategories()
+    {
+        $this->categories = Category::all();
+    }
 
     public function save()
     {
@@ -73,6 +78,9 @@ class CreateCategory extends Component
 
         $this->image = 2;
         $this->reset('createForm');
+
+        $this->getCategories();
+        $this->emit('saved');
     }
 
 
