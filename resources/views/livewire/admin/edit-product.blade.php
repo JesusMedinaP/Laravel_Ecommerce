@@ -160,6 +160,7 @@
 @push('scripts')
     <script>
         const { Dropzone } = require("dropzone");
+
         Dropzone.options.myAwesomeDropzone = {
             headers: {
                 'X-CSRF-TOKEN': "{{ csrf_token() }}"
