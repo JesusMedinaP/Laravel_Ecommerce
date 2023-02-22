@@ -1236,6 +1236,9 @@ select {
 .mb-2 {
   margin-bottom: 0.5rem;
 }
+.mr-6 {
+  margin-right: 1.5rem;
+}
 .ml-auto {
   margin-left: auto;
 }
