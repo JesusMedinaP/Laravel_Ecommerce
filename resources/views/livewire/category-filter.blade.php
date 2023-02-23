@@ -2,7 +2,7 @@
     <div class="bg-white rounded-lg shadow-lg mb-6">
         <div class="px-6 py-2 flex justify-between items-center text-gray-500">
             <h1>{{ $category->name }}</h1>
-            <div class="grid grid-cols-2 border border-gray-200 divide-x divide-gray-200">
+            <div class="hidden md:block grid grid-cols-2 border border-gray-200 divide-x divide-gray-200">
 
                 <i class="fas fa-border-all p-3 cursor-pointer{{ $view == 'grid' ? 'text-orange-500' : '' }}"
                    wire:click="$set('view', 'grid')">
