@@ -36,8 +36,9 @@
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                     @foreach ($users as $user)
-                        <tr>
-                            <td class="px-6 py-4 whitespace-nowrap">
+                        <tr wire:key="{{ $user->email }}">
+
+                        <td class="px-6 py-4 whitespace-nowrap">
                                 <div class="text-gray-900">
                                     {{$user->id}}
                                 </div>
@@ -62,7 +63,16 @@
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-
+                                <label>
+                                    <input {{ $user->roles->count() ? 'checked' : '' }} value="1" type="radio" name="{{$user->email}}"
+                                           wire:change="assignRole({{$user->id}}, $event.target.value)">
+                                    Si
+                                </label>
+                                <label class="ml-2">
+                                    <input {{ $user->roles->count() ? '' : 'checked' }} value="0" type="radio" name="{{$user->email}}"
+                                           wire:change="assignRole({{$user->id}}, $event.target.value)">
+                                    No
+                                </label>
                             </td>
                         </tr>
                     @endforeach
