@@ -27,9 +27,7 @@ return new class extends Migration
             $table->float('shipping_cost');
             $table->float('total');
             $table->json('content');
-            $table->foreignId('department_id')->nullable()->references('id')->on('departments');
-            $table->foreignId('city_id')->nullable()->references('id')->on('cities');
-            $table->foreignId('district_id')->nullable()->references('id')->on('districts');
+            $table->json('envio')->nullable();
             $table->string('address')->nullable();
 
             $table->string('reference')->nullable();

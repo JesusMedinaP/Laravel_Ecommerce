@@ -28,7 +28,10 @@ class PaymentOrder extends Component
     public function render()
     {
         $this->authorize('view', $this->order);
+
         $items = json_decode($this->order->content);
-        return view('livewire.payment-order', compact('items'));
+        $envio = json_decode($this->order->envio);
+
+        return view('livewire.payment-order', compact('items', 'envio'));
     }
 }
