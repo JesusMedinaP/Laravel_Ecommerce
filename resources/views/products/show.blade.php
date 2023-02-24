@@ -47,4 +47,15 @@
 
         </div>
     </div>
+
+    @push('scripts')
+        <script>
+            $(document).ready(function() {
+                $('.flexslider').flexslider({
+                    animation: "slide",
+                    controlNav: "thumbnails"
+                });
+            });
+        </script>
+    @endpush
 </x-app-layout>
