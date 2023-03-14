@@ -56,4 +56,24 @@ class Product extends Model
             return $this->quantity;
         }
     }
+
+    public function getSoldedAttribute()
+    {
+        $orders = Order::where('status', 'NOT LIKE', 1)->where('status', 'NOT LIKE', 5)->get();
+
+        $sold = 0;
+
+        foreach ($orders as $order) {
+
+            $items = json_decode($order->content);
+            foreach ($items as $content){
+
+                if($this->id == $content->id){
+                    $sold = $sold + $content->qty;
+                }
+            }
+        }
+
+        return $sold;
+    }
 }
