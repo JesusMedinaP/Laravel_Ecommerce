@@ -20,6 +20,19 @@
             </x-jet-input>
         </div>
 
+        <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
+                <x-jet-label value="Paginación" class="text-xl"></x-jet-label>
+                <select class="w-full form-control" wire:model="pagination">
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+        </div>
+
+
         @if($products->count())
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
