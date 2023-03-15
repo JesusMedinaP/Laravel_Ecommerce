@@ -2,9 +2,13 @@
 
 namespace App\Models;
 
+
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Filters\ProductFilter;
+use App\Queries\ProductBuilder;
+
 
 class Product extends Model
 {
@@ -75,5 +79,15 @@ class Product extends Model
         }
 
         return $sold;
+    }
+
+    public function newEloquentBuilder($query): ProductBuilder
+    {
+        return new ProductBuilder($query);
+    }
+
+    public function newQueryFilter(): ProductFilter
+    {
+        return new ProductFilter();
     }
 }
