@@ -12,6 +12,14 @@ class ShowProducts2 extends Component
 
     public $search;
     public $pagination = 10;
+    public $name = true;
+    public $category = true;
+    public $brand = true;
+    public $sold = true;
+    public $stock = true;
+    public $date = true;
+    public $state = true;
+    public $prize = true;
 
     public function updatingSearch()
     {
@@ -19,6 +27,46 @@ class ShowProducts2 extends Component
     }
 
     public function updatingPagination()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingName()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingCategory()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingBrand()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingSold()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingStock()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingDate()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingState()
+    {
+        $this->resetPage();
+    }
+
+    public function updatingPrize()
     {
         $this->resetPage();
     }

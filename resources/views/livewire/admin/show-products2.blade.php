@@ -21,7 +21,7 @@
         </div>
 
         <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
-                <x-jet-label value="Paginación" class="text-xl"></x-jet-label>
+                <x-jet-label value="Paginación:" class="text-xl"></x-jet-label>
                 <select class="w-full form-control" wire:model="pagination">
                     <option value="5">5</option>
                     <option value="10">10</option>
@@ -32,39 +32,72 @@
                 </select>
         </div>
 
+        <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
+            <x-jet-label value="Columnas:" class="text-xl"></x-jet-label>
+            <div class="form-group form-check">
+            <label for="name"><input type="checkbox" wire:model="name" id="name">Nombre</label>
+            <label for="category"><input type="checkbox" wire:model="category" id="category">Categoría</label>
+            <label for="brand"><input type="checkbox" wire:model="brand" id="brand">Marca</label>
+            <label for="sold"><input type="checkbox" wire:model="sold" id="sold">Vendidos</label>
+            <label for="stock"><input type="checkbox" wire:model="stock" id="stock">Stock</label>
+            <label for="date"><input type="checkbox" wire:model="date" id="date">Date</label>
+            <label for="state"><input type="checkbox" wire:model="state" id="state">Estado</label>
+            <label for="prize"><input type="checkbox" wire:model="prize" id="prize">Precio</label>
+            </div>
+        </div>
+
 
         @if($products->count())
             <table class="min-w-full divide-y divide-gray-200">
                 <thead class="bg-gray-50">
                 <tr>
+                    @if($name)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Nombre
                     </th>
+                    @endif
+
+                    @if($category)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Categoría
                     </th>
+                    @endif
 
-
+                    @if($brand)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Marca
                     </th>
+                    @endif
+
+                    @if($sold)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Vendidos
                     </th>
+                    @endif
+
+                    @if($stock)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Stock
                     </th>
+                    @endif
+
+                     @if($date)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Fecha Creación
                     </th>
+                    @endif
 
-
+                    @if($state)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Estado
                     </th>
+                    @endif
+
+                    @if($prize)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Precio
                     </th>
+                    @endif
 
                     <th scope="col" class="relative px-6 py-3">
                         <span class="sr-only">Editar</span>
@@ -75,6 +108,7 @@
                 <tbody class="bg-white divide-y divide-gray-200">
                 @foreach($products as $product)
                     <tr>
+                        @if($name)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 h-10 w-10 object-cover">
@@ -87,34 +121,53 @@
                                 </div>
                             </div>
                         </td>
+                        @endif
+
+                            @if($category)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-900">{{ $product->subcategory->category->name }}</div>
                             <div class="text-sm text-gray-500">{{ $product->subcategory->name }}</div>
                         </td>
+                            @endif
 
-
+                            @if($brand)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-500">{{ $product->brand->name }}</div>
                         </td>
+                            @endif
+
+                            @if($sold)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-500">{{ $product->solded }}</div>
                         </td>
+                            @endif
+
+                            @if($stock)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-500">{{ $product->stock }}</div>
                         </td>
+                            @endif
+
+                            @if($date)
                         <td class="px-6 py-4 whitespace-nowrap">
                             <div class="text-sm text-gray-500">{{ $product->created_at->format('d-m-Y') }}</div>
                         </td>
+                            @endif
 
-
+                            @if($state)
                         <td class="px-6 py-4 whitespace-nowrap">
                         <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-{{ $product->status == 1 ? 'red' : 'green'}}-100 text-{{ $product->status == 1 ? 'red' : 'green' }}-800">
                             {{ $product->status == 1 ? 'Borrador' : 'Publicado' }}
                         </span>
                         </td>
+                            @endif
+
+                            @if($prize)
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {{ $product->price }} &euro;
                         </td>
+                            @endif
+
                         <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
                             <a href="{{ route('admin.products.edit', $product) }}" class="text-indigo-600 hover:text-indigo-900">Editar</a>
                         </td>
