@@ -2,6 +2,8 @@
 
 namespace App\Http\Livewire\Admin;
 
+use App\Models\Brand;
+use App\Models\Category;
 use App\Models\Product;
 use Livewire\Component;
 use Livewire\WithPagination;
@@ -22,6 +24,11 @@ class ShowProducts2 extends Component
     public $price = true;
     public $sortField = 'name';
     public $sortDirection = 'asc';
+    public $selectedCategory;
+    public $selectedBrand;
+    public $selectedPrice;
+    public $selectedDate;
+
 
     public function updatingSearch()
     {
@@ -92,11 +99,36 @@ class ShowProducts2 extends Component
 
     public function render()
     {
-        $products = Product::where('name', 'LIKE', "%{$this->search}%")
+//        $products = Product::where('name', 'LIKE', "%{$this->search}%")
+//            ->orderBy($this->sortField, $this->sortDirection)
+//            ->paginate($this->pagination);
+//        $products = Product::query()->applyFilters(['search' => $this->search])->paginate($this->pagination);
+        $products = Product::query()
+            ->when($this->selectedCategory, function ($query)
+            {
+               return $query->whereHas('subcategory.category', function ($query){
+                   $query->where('id', $this->selectedCategory);
+               });
+            })
+            ->when($this->selectedBrand, function ($query)
+            {
+                return $query->whereHas('brand', function ($query){
+                    $query->where('brand_id', $this->selectedBrand);
+                });
+            })
+            ->when($this->selectedPrice, function ($query){
+                return $query->where('price', $this->selectedPrice);
+            })
+            ->when($this->selectedDate, function ($query){
+                return $query->whereDate('created_at', $this->selectedDate);
+            })
+            ->where('name', 'LIKE', "%{$this->search}%")
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate($this->pagination);
-//        $products = Product::query()->applyFilters(['search' => $this->search])->paginate($this->pagination);
 
-        return view('livewire.admin.show-products2', compact('products'))->layout('layouts.admin');
+        return view('livewire.admin.show-products2', compact('products'),[
+            'categories' => Category::all(),
+            'brands' => Brand::all(),
+        ])->layout('layouts.admin');
     }
 }

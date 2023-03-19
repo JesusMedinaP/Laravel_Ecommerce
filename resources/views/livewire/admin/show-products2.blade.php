@@ -75,6 +75,43 @@
         </div>
         </div>
 
+        <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
+        <div class="form-group">
+            <label for="categoryFilter">Categoría:</label>
+            <select wire:model = "selectedCategory" id="categoryFilter" class="form-control">
+                <option value="">Todas las Categorías</option>
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}">{{$category->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="brandFilter">Marca:</label>
+            <select wire:model = "selectedBrand" id="brandFilter" class="form-control">
+                <option value="">Todas las Marcas</option>
+                @foreach($brands as $brand)
+                    <option value="{{$brand->id}}">{{$brand->name}}</option>
+                @endforeach
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="priceFilter">Precio:</label>
+            <select wire:model = "selectedPrice" id="priceFilter" class="form-control">
+                <option value="">Todos los Precios</option>
+                <option value="19.99">19.99 €</option>
+                <option value="49.99">49.99 €</option>
+                <option value="99.99">99.99 €</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="dateFilter">Fecha de creación:</label>
+            <input type="date" wire:model="selectedDate" id="dateFilter" class="form-control">
+        </div>
+
+        </div>
 
         @if($products->count())
             <table class="min-w-full divide-y divide-gray-200">
