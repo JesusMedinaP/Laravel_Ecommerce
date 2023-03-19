@@ -19,7 +19,9 @@ class ShowProducts2 extends Component
     public $stock = true;
     public $date = true;
     public $state = true;
-    public $prize = true;
+    public $price = true;
+    public $sortField = 'name';
+    public $sortDirection = 'asc';
 
     public function updatingSearch()
     {
@@ -66,15 +68,34 @@ class ShowProducts2 extends Component
         $this->resetPage();
     }
 
-    public function updatingPrize()
+    public function updatingPrice()
     {
         $this->resetPage();
     }
 
+    public function sortBy($field)
+    {
+        if($this->sortField === $field)
+        {
+            $this->sortDirection = $this->sortDirection === 'asc' ? 'desc' : 'asc';
+        }else{
+            if($field === 'subcategory.category.name'){
+                $this->sortField = 'subcategory_id';
+            }else if($field === 'brand_id.name'){
+                $this->sortField = 'brand_id';
+            }else
+            {
+                $this->sortField = $field;
+            }
+        }
+    }
+
     public function render()
     {
-//        $products = Product::where('name', 'LIKE', "%{$this->search}%")->paginate($this->pagination);
-        $products = Product::query()->applyFilters(['search' => $this->search])->paginate($this->pagination);
+        $products = Product::where('name', 'LIKE', "%{$this->search}%")
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->paginate($this->pagination);
+//        $products = Product::query()->applyFilters(['search' => $this->search])->paginate($this->pagination);
 
         return view('livewire.admin.show-products2', compact('products'))->layout('layouts.admin');
     }

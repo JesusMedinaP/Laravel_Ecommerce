@@ -42,8 +42,37 @@
             <label for="stock"><input type="checkbox" wire:model="stock" id="stock">Stock</label>
             <label for="date"><input type="checkbox" wire:model="date" id="date">Date</label>
             <label for="state"><input type="checkbox" wire:model="state" id="state">Estado</label>
-            <label for="prize"><input type="checkbox" wire:model="prize" id="prize">Precio</label>
+            <label for="price"><input type="checkbox" wire:model="price" id="price">Precio</label>
             </div>
+        </div>
+
+        <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
+            <x-jet-label value="Ordenar:" class="text-xl"></x-jet-label>
+            <div class="form-group form-check">
+            <th scope="col">
+                <button type="button" class="bg-green-200 font-bold">
+                    <a href="#" wire:click.prevent="sortBy('name')">Nombre</a>
+                </button>
+            </th>
+
+            <th scope="col">
+                <button type="button" class="bg-green-200 font-bold">
+                    <a href="#" wire:click.prevent="sortBy('price')">Precio</a>
+                </button>
+            </th>
+
+            <th scope="col">
+                <button type="button" class="bg-green-200 font-bold">
+                    <a href="#" wire:click.prevent="sortBy('name')">Categoría</a>
+                </button>
+            </th>
+
+            <th scope="col">
+                <button type="button" class="bg-green-200 font-bold">
+                    <a href="#" wire:click.prevent="sortBy('name')">Marca</a>
+                </button>
+            </th>
+        </div>
         </div>
 
 
@@ -93,7 +122,7 @@
                     </th>
                     @endif
 
-                    @if($prize)
+                    @if($price)
                     <th scope="col" class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                         Precio
                     </th>
@@ -162,7 +191,7 @@
                         </td>
                             @endif
 
-                            @if($prize)
+                            @if($price)
                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                             {{ $product->price }} &euro;
                         </td>
