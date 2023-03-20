@@ -102,7 +102,9 @@ class ShowProducts2 extends Component
 //        $products = Product::where('name', 'LIKE', "%{$this->search}%")
 //            ->orderBy($this->sortField, $this->sortDirection)
 //            ->paginate($this->pagination);
+//
 //        $products = Product::query()->applyFilters(['search' => $this->search])->paginate($this->pagination);
+
         $products = Product::query()
             ->when($this->selectedCategory, function ($query)
             {

@@ -11,6 +11,8 @@ use App\Http\Livewire\Admin\ShowCity;
 use App\Http\Livewire\Admin\ShowDepartment;
 use App\Http\Livewire\Admin\ShowProducts;
 use App\Http\Livewire\Admin\ShowProducts2;
+use App\Http\Livewire\Admin\TrashComponent;
+use App\Http\Livewire\Admin\User2Component;
 use App\Http\Livewire\Admin\UserComponent;
 use Illuminate\Support\Facades\Route;
 
@@ -39,3 +41,7 @@ Route::get('departments/{department}', ShowDepartment::class)->name('admin.depar
 Route::get('cities/{city}', ShowCity::class)->name('admin.cities.show');
 
 Route::get('users', UserComponent::class)->name('admin.users.index');
+
+Route::get('users2', User2Component::class)->name('admin.users2');
+
+Route::get('trash', TrashComponent::class)->name('admin.trash');
