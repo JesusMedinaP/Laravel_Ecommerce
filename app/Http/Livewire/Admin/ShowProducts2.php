@@ -28,6 +28,7 @@ class ShowProducts2 extends Component
     public $selectedBrand;
     public $selectedPrice;
     public $selectedDate;
+    public $showFilters = true;
 
 
     public function updatingSearch()

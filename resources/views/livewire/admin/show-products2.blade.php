@@ -21,6 +21,12 @@
         </div>
 
         <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
+            <x-jet-label value="Filtros:" class="text-xl"></x-jet-label>
+            <label for="filters"><input type="checkbox" wire:model="showFilters" id="filters"></label>
+        </div>
+
+        @if($showFilters)
+        <div class="grid grid-cols-2 gap-6 mb-4 px-6 py-4">
                 <x-jet-label value="Paginación:" class="text-xl"></x-jet-label>
                 <select class="w-full form-control" wire:model="pagination">
                     <option value="5">5</option>
@@ -112,6 +118,7 @@
         </div>
 
         </div>
+        @endif
 
         @if($products->count())
             <table class="min-w-full divide-y divide-gray-200">
