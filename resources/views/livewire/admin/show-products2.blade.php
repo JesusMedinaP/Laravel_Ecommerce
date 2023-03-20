@@ -69,13 +69,13 @@
 
             <th scope="col">
                 <button type="button" class="bg-green-200 font-bold">
-                    <a href="#" wire:click.prevent="sortBy('name')">Categoría</a>
+                    <a href="#" wire:click.prevent="sortBy('subcategory.category.name')">Categoría</a>
                 </button>
             </th>
 
             <th scope="col">
                 <button type="button" class="bg-green-200 font-bold">
-                    <a href="#" wire:click.prevent="sortBy('name')">Marca</a>
+                    <a href="#" wire:click.prevent="sortBy('brand_id.name')">Marca</a>
                 </button>
             </th>
         </div>
